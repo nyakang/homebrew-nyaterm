@@ -1,10 +1,10 @@
 cask "nyaterm" do
-  arch arm: "aarch64", intel: "x64"
+  arch arm: "arm64", intel: "x64"
 
   version "1.1.5"
   sha256 :no_check
 
-  url "https://github.com/nyakang/nyaterm/releases/download/v#{version}/NyaTerm_#{version}_#{arch}.dmg",
+  url "https://github.com/nyakang/nyaterm/releases/download/v#{version}/NyaTerm_#{version}_macos_#{arch}.dmg",
       verified: "github.com/nyakang/nyaterm/"
   name "NyaTerm"
   desc "Modern remote terminal workspace"

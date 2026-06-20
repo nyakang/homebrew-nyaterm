@@ -12,8 +12,8 @@ TAG="v${VERSION}"
 CASK_FILE="Casks/nyaterm.rb"
 
 # Keep these in sync with the artifact names produced by the NyaTerm release workflow.
-ASSET_ARM_TEMPLATE="NyaTerm_${VERSION}_aarch64.dmg"
-ASSET_INTEL_TEMPLATE="NyaTerm_${VERSION}_x64.dmg"
+ASSET_ARM_TEMPLATE="NyaTerm_${VERSION}_macos_arm64.dmg"
+ASSET_INTEL_TEMPLATE="NyaTerm_${VERSION}_macos_x64.dmg"
 
 BASE_URL="https://github.com/nyakang/nyaterm/releases/download/${TAG}"
 TMP_DIR="$(mktemp -d)"
