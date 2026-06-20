@@ -1,0 +1,36 @@
+name: Update Cask
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "NyaTerm version, for example 1.1.6 or v1.1.6"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-cask:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Update cask
+        run: ./scripts/bump-cask.sh "${{ inputs.version }}"
+
+      - name: Validate cask syntax
+        run: brew audit --cask --strict Casks/nyaterm.rb
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "chore: update nyaterm cask to ${{ inputs.version }}"
+          title: "chore: update nyaterm cask to ${{ inputs.version }}"
+          body: "Updates the NyaTerm Homebrew cask to `${{ inputs.version }}`."
+          branch: "chore/update-nyaterm-${{ inputs.version }}"
+
