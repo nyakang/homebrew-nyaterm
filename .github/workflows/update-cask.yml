@@ -17,6 +17,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Update cask
         run: bash ./scripts/bump-cask.sh "${{ inputs.version }}"
 
