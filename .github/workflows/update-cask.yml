@@ -17,14 +17,14 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
       - name: Update cask
         run: bash ./scripts/bump-cask.sh "${{ inputs.version }}"
 
+      - name: Tap local repository
+        run: brew tap nyakang/nyaterm "$PWD"
+
       - name: Validate cask syntax
-        run: brew audit --cask --strict Casks/nyaterm.rb
+        run: brew audit --cask --strict nyakang/nyaterm/nyaterm
 
       - name: Create pull request
         uses: peter-evans/create-pull-request@v6
