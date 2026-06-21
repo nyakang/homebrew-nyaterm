@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Update cask
-        run: ./scripts/bump-cask.sh "${{ inputs.version }}"
+        run: bash ./scripts/bump-cask.sh "${{ inputs.version }}"
 
       - name: Validate cask syntax
         run: brew audit --cask --strict Casks/nyaterm.rb
@@ -33,4 +33,3 @@ jobs:
           title: "chore: update nyaterm cask to ${{ inputs.version }}"
           body: "Updates the NyaTerm Homebrew cask to `${{ inputs.version }}`."
           branch: "chore/update-nyaterm-${{ inputs.version }}"
-
