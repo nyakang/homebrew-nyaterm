@@ -30,9 +30,17 @@ jobs:
         run: brew audit --cask --strict nyakang/nyaterm/nyaterm
 
       - name: Create pull request
+        id: cpr
         uses: peter-evans/create-pull-request@v6
         with:
           commit-message: "chore: update nyaterm cask to ${{ inputs.version }}"
           title: "chore: update nyaterm cask to ${{ inputs.version }}"
           body: "Updates the NyaTerm Homebrew cask to `${{ inputs.version }}`."
           branch: "chore/update-nyaterm-${{ inputs.version }}"
+          delete-branch: true
+
+      - name: Auto merge pull request
+        if: ${{ steps.cpr.outputs.pull-request-number }}
+        run: gh pr merge "${{ steps.cpr.outputs.pull-request-number }}" --squash --delete-branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
