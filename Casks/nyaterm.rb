@@ -5,8 +5,7 @@ cask "nyaterm" do
   sha256 arm:   "3a62341a1a5c763b970fb9ae9e9ea19b31835446293ea5aef1ccba7271cfa70f",
          intel: "bd8c4791df541179069018c783b3a29b3b1be24462ea9ae7a3b81a0fa5002774"
 
-  url "https://github.com/nyakang/nyaterm/releases/download/v#{version}/NyaTerm_#{version}_macos_#{arch}.dmg",
-      verified: "github.com/nyakang/nyaterm/"
+  url "https://github.com/nyakang/nyaterm/releases/download/v#{version}/NyaTerm_#{version}_macos_#{arch}.dmg"
   name "NyaTerm"
   desc "Modern remote terminal workspace"
   homepage "https://nyaterm.app/"
