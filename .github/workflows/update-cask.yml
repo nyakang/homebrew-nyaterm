@@ -26,6 +26,9 @@ jobs:
       - name: Tap local repository
         run: brew tap nyakang/nyaterm "$PWD"
 
+      - name: Trust NyaTerm cask
+        run: brew trust --cask nyakang/nyaterm/nyaterm
+
       - name: Validate cask syntax
         run: brew audit --cask --strict nyakang/nyaterm/nyaterm
 
