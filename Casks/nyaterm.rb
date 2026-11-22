@@ -1,9 +1,9 @@
 cask "nyaterm" do
   arch arm: "arm64", intel: "x64"
 
-  version "2.0.7"
-  sha256 arm:   "0fde5e2a37c4c2384151edf2760162479f150fdbb164fb7e54f9ea346171b891",
-         intel: "356866fc007b2196d422108324c6c17065932517584f5fcbb30d15293fc04ce3"
+  version "2.0.8"
+  sha256 arm:   "2d7fe1c3e8ed760c726980ca0157ea722c7674503aa5eaf7ea2b00c40c8d504d",
+         intel: "633da6e808de6bbd5ddaa46a7527cbbfcc41301c63f5f8dbd9cfe90e926b0e85"
 
   url "https://github.com/nyakang/nyaterm/releases/download/v#{version}/NyaTerm_#{version}_macos_#{arch}.dmg"
   name "NyaTerm"
